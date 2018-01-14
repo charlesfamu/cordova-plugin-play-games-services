@@ -278,7 +278,7 @@ public class PlayGamesServices extends CordovaPlugin implements GameHelperListen
                             public void onResult(Leaderboards.LoadPlayerScoreResult playerScoreResult) {
                                 if (playerScoreResult.getStatus().isSuccess()) {
                                     LeaderboardScore score = playerScoreResult.getScore();
-                                    
+
                                     if (score != null) {
                                         try {
                                             JSONObject result = new JSONObject();
@@ -524,6 +524,7 @@ public class PlayGamesServices extends CordovaPlugin implements GameHelperListen
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
         gameHelper.onActivityResult(requestCode, resultCode, intent);
     }
 }
